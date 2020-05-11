@@ -90,11 +90,7 @@ function getDistanceBetweenPoints(x1, y1, x2, y2) {
  */
 // eslint-disable-next-line consistent-return
 function getLinearEquationRoot(a, b) {
-  if (a >= 0) {
-    let c = (0 - b) / a;
-    c *= (-1);
-    return c;
-  }
+  return -b / a;
 }
 
 
@@ -117,10 +113,10 @@ function getLinearEquationRoot(a, b) {
  *   (0,1) (1,2)     => 0
  */
 function getAngleBetweenVectors(x1, y1, x2, y2) {
-  const deltaX = x2 - x1;
-  const deltaY = y2 - y1;
-  const rad = Math.atan2(deltaY, deltaX);
-  return rad;
+  function getAngleBetweenVectors(x1, y1, x2, y2) {
+  const vect = (x1 * x2 + y1 * y2) / (Math.sqrt(x1 ** 2 + y1 ** 2) * Math.sqrt(x2 ** 2 + y2 ** 2));
+  return Math.acos(vect);
+}
 }
 
 /**
@@ -191,7 +187,11 @@ function getParallelipidedDiagonal(a, b, c) {
  *   1678, 3  => 2000
  */
 function roundToPowerOfTen(num, pow) {
-  return num + pow;
+  function roundToPowerOfTen(num, pow) {
+  let number = Math.pow(10, pow);
+  number = Math.round(num / number) * number;
+  return number;
+}
 }
 
 /**
@@ -211,9 +211,15 @@ function roundToPowerOfTen(num, pow) {
  *   16 => false
  *   17 => true
  */
-function isPrime(/* n */) {
-  throw new Error('Not implemented');
+function isPrime(n) {
+  if (n < 4) return true;
+  let i = 0;
+  for (i = 2; i <= Math.sqrt(n); i++) {
+    if (((n % i) === 0)) return false;
+  }
+  return true;
 }
+
 
 /**
  * Tries to convert value to number and returns it if conversion was successfull;
@@ -230,10 +236,9 @@ function isPrime(/* n */) {
  *   toNumber(42, 0) => 42
  *   toNumber(new Number(42), 0) => 42
  */
-function toNumber(/* value, def */) {
-  throw new Error('Not implemented');
+function toNumber(value, def) {
+  return Number.isNaN(Number(value)) ? def : Number(value);
 }
-
 module.exports = {
   getRectangleArea,
   getCicleCircumference,
