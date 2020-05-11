@@ -1,4 +1,10 @@
+/* eslint-disable no-plusplus */
+/* eslint-disable operator-assignment */
+/* eslint-disable no-bitwise */
+/* eslint-disable no-restricted-properties */
 /* eslint-disable linebreak-style */
+/* ************************************
+
 /* *******************************************************************************************
  *                                                                                           *
  * Plese read the following tutorial before implementing tasks:                              *
