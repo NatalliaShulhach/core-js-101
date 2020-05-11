@@ -209,7 +209,7 @@ function getRectangleString(width, height) {
   const symbolH = ' ';
   if (width > 0 && height > 0) {
     const firstLine = `┌${symbolW.repeat(width - 2)}┐\n`;
-    const lastIine = `└${symbolW.repeat(width - 2)}┘\n`;
+    const lastIine = ` └${symbolW.repeat(width - 2)}┘\n`;
     const line = `│${symbolH.repeat(width - 2)}│\n`;
     return firstLine + line.repeat(height - 2) + lastIine;
   }
