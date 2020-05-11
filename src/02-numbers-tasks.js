@@ -1,9 +1,4 @@
 /* eslint-disable linebreak-style */
-/* eslint-disable no-plusplus */
-/* eslint-disable operator-assignment */
-/* eslint-disable no-bitwise */
-/* eslint-disable no-restricted-properties */
-/* eslint-disable linebreak-style */
 /* *******************************************************************************************
  *                                                                                           *
  * Plese read the following tutorial before implementing tasks:                              *
@@ -12,8 +7,7 @@
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math     *
  *                                                                                           *
  ******************************************************************************************* */
-/**
- // eslint-disable-next-line linebreak-style
+/*
  * Returns an area of a rectangle given by width and heigth.
  *
  * @param {numder} width
@@ -190,7 +184,9 @@ function getParallelipidedDiagonal(a, b, c) {
  *   1678, 3  => 2000
  */
 function roundToPowerOfTen(num, pow) {
+  // eslint-disable-next-line no-restricted-properties
   let number = Math.pow(10, pow);
+  // eslint-disable-next-line operator-assignment
   number = Math.round(num / number) * number;
   return number;
 }
@@ -215,6 +211,7 @@ function roundToPowerOfTen(num, pow) {
 function isPrime(n) {
   if (n < 4) return true;
   let i = 0;
+  // eslint-disable-next-line no-plusplus
   for (i = 2; i <= Math.sqrt(n); i++) {
     if (((n % i) === 0)) return false;
   }
