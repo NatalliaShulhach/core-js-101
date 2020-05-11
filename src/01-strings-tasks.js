@@ -252,28 +252,8 @@ function encodeToRot13(str) {
  *   isString(new String('test')) => true
  */
 // eslint-disable-next-line consistent-return
-function isString() {
-  // eslint-disable-next-line prefer-rest-params
-  for (const arg of arguments) {
-    if (!arguments) {
-      return false;
-    }
-    if (typeof arg === 'string') {
-      return true;
-    }
-    if (typeof arg === 'object') {
-      if (!arguments) {
-        return false;
-      }
-      // eslint-disable-next-line no-restricted-syntax
-      for (const args of arguments) {
-        if (typeof args[0] === 'string') {
-          return true;
-        }
-        return false;
-      }
-    }
-  }
+function isString(value) {
+  return typeof (value) === 'string' || value instanceof String;
 }
 
 
