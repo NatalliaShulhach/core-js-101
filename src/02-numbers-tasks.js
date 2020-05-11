@@ -4,7 +4,6 @@
 /* eslint-disable no-bitwise */
 /* eslint-disable no-restricted-properties */
 /* eslint-disable linebreak-style */
-
 /* *******************************************************************************************
  *                                                                                           *
  * Plese read the following tutorial before implementing tasks:                              *
@@ -119,10 +118,8 @@ function getLinearEquationRoot(a, b) {
  *   (0,1) (1,2)     => 0
  */
 function getAngleBetweenVectors(x1, y1, x2, y2) {
-  function getAngleBetweenVectors(x1, y1, x2, y2) {
   const vect = (x1 * x2 + y1 * y2) / (Math.sqrt(x1 ** 2 + y1 ** 2) * Math.sqrt(x2 ** 2 + y2 ** 2));
   return Math.acos(vect);
-}
 }
 
 /**
@@ -193,11 +190,9 @@ function getParallelipidedDiagonal(a, b, c) {
  *   1678, 3  => 2000
  */
 function roundToPowerOfTen(num, pow) {
-  function roundToPowerOfTen(num, pow) {
   let number = Math.pow(10, pow);
   number = Math.round(num / number) * number;
   return number;
-}
 }
 
 /**
@@ -226,7 +221,6 @@ function isPrime(n) {
   return true;
 }
 
-
 /**
  * Tries to convert value to number and returns it if conversion was successfull;
  * otherwise returns default value passed as a second argument.
@@ -245,6 +239,7 @@ function isPrime(n) {
 function toNumber(value, def) {
   return Number.isNaN(Number(value)) ? def : Number(value);
 }
+
 module.exports = {
   getRectangleArea,
   getCicleCircumference,
