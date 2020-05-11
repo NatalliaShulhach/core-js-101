@@ -20,8 +20,8 @@
  *    ['Array', 'Number', 'string'], 'Date'    => -1
  *    [0, 1, 2, 3, 4, 5], 5    => 5
  */
-function findElement(/* arr, value */) {
-  throw new Error('Not implemented');
+function findElement(arr, value) {
+  return arr.indexOf(value)
 }
 
 /**
@@ -35,10 +35,15 @@ function findElement(/* arr, value */) {
  *    2 => [ 1, 3 ]
  *    5 => [ 1, 3, 5, 7, 9 ]
  */
-function generateOdds(/* len */) {
-  throw new Error('Not implemented');
+function generateOdds(len) {
+  let odd = 1; 
+  let arr = [];
+  for (let i = 1; i <= len; i++){
+     arr.push(odd);
+     odd += 2;
+  }
+  return arr;
 }
-
 
 /**
  * Returns the doubled array - elements of the specified array
@@ -52,8 +57,9 @@ function generateOdds(/* len */) {
  *    [0, 1, 2, 3, 4, 5] => [0, 1, 2, 3, 4, 5,   0, 1, 2, 3, 4, 5]
  *    [] => []
  */
-function doubleArray(/* arr */) {
-  throw new Error('Not implemented');
+function doubleArray(arr) {
+ 
+  return str.repeat(2);
 }
 
 
@@ -68,9 +74,11 @@ function doubleArray(/* arr */) {
  *    [-1, 2, -5, -4, 0] => [ 2 ]
  *    [] => []
  */
-function getArrayOfPositives(/* arr */) {
-  throw new Error('Not implemented');
-}
+function getArrayOfPositives(arr) {
+  let positiveArr = arr.filter(function(number) {
+    return number > 0;
+  })
+
 
 /**
  * Returns the array with strings only in the specified array (in original order)
@@ -156,7 +164,7 @@ function insertItem(/* arr, item, index */) {
  * @param {number} n
  *
  * @example
- *    [ 1, 3, 4, 5 ], 2 => [ 1, 3 ]
+ *    [ 1, 3, 4, 5 ], 2  => [ 1, 2 ]
  *    [ 'a', 'b', 'c', 'd'], 3  => [ 'a', 'b', 'c' ]
  */
 function getHead(/* arr, n */) {
