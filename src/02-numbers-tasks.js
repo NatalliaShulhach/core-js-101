@@ -1,9 +1,9 @@
+/* eslint-disable linebreak-style */
 /* eslint-disable no-plusplus */
 /* eslint-disable operator-assignment */
 /* eslint-disable no-bitwise */
 /* eslint-disable no-restricted-properties */
 /* eslint-disable linebreak-style */
-/* ************************************
 
 /* *******************************************************************************************
  *                                                                                           *
