@@ -353,12 +353,10 @@ function getPositivesCount(arr) {
  *   [ 'one','one','one','zero' ]     => [ 'zero','one','one','one' ]
  */
 function sortDigitNamesByNumericOrder(arr) {
-  function sortDigitNamesByNumericOrder(arr) {
   const digit = {
     zero: 0, one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9,
   };
   return arr.sort((a, b) => digit[a] - digit[b]);
-}
 }
 
 /**
@@ -418,8 +416,8 @@ function getFalsyValuesCount(arr) {
  *    [ null, undefined, null ], null => 2
  *    [ true, 0, 1, 'true' ], true => 1
  */
-function findAllOccurences(/* arr, item */) {
-   let counter = 0;
+function findAllOccurences(arr, item) {
+  let counter = 0;
   for (let i = 0; i <= arr.length; i++) {
     if (arr[i] === item) {
       counter += 1;
@@ -510,20 +508,26 @@ function getIdentityMatrix(/* n */) {
  *     3, 3   => [ 3 ]
  */
 function getIntervalArray(start, end) {
-  const arrLength = arr.length;
-  const halfLength = Math.floor(arrLength / 2);
-  const head = arr.slice(0, halfLength);
-  const tail = arr.slice(-halfLength);
-  let result = [];
-
-  if (arr.length < 2) {
-    return arr;
+  const result = [];
+  const arrLength = end - start + 1;
+  if (start < 0) {
+    for (let i = start; i < arrLength - end; i++) {
+      result.push(i);
+    }
   }
-  if (arrLength % 2 === 0) {
-    result = [...tail, ...head];
-  } else {
-    const middleElement = arr[halfLength];
-    result = [...tail, middleElement, ...head];
+  if (start > 0) {
+    for (let i = start; i < arrLength + 1; i++) {
+      result.push(i);
+    }
+  }
+  if (start === 0) {
+    for (let i = start; i < arrLength; i++) {
+      result.push(i);
+    }
+  }
+
+  if (start === end) {
+    result.push(start);
   }
   return result;
 }
@@ -609,7 +613,7 @@ function selectMany(/* arr, childrenSelector */) {
  *   [[[ 1, 2, 3]]], [ 0, 0, 1 ]      => 2        (arr[0][0][1])
  */
 function getElementByIndexes(/* arr, indexes */) {
-  throw new Error('Not implemented');
+
 }
 
 
@@ -684,3 +688,4 @@ module.exports = {
   getElementByIndexes,
   swapHeadAndTail,
 };
+
