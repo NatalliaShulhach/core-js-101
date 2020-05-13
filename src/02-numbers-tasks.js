@@ -1,4 +1,4 @@
-/* eslint-disable linebreak-style */
+* eslint-disable linebreak-style */
 /* *******************************************************************************************
  *                                                                                           *
  * Plese read the following tutorial before implementing tasks:                              *
@@ -87,7 +87,7 @@ function getDistanceBetweenPoints(x1, y1, x2, y2) {
  *   x + 8 = 0       => -8
  *   5*x = 0         => 0
  */
-// eslint-disable-next-line consistent-return
+
 function getLinearEquationRoot(a, b) {
   return -b / a;
 }
@@ -112,7 +112,8 @@ function getLinearEquationRoot(a, b) {
  *   (0,1) (1,2)     => 0
  */
 function getAngleBetweenVectors(x1, y1, x2, y2) {
-  return Math.abs(Math.atan2(y2, x2) - Math.atan2(y1, x1));
+  const vect = (x1 * x2 + y1 * y2) / (Math.sqrt(x1 ** 2 + y1 ** 2) * Math.sqrt(x2 ** 2 + y2 ** 2));
+  return Math.acos(vect);
 }
 
 /**
@@ -182,11 +183,10 @@ function getParallelipidedDiagonal(a, b, c) {
  *   1678, 3  => 2000
  */
 function roundToPowerOfTen(num, pow) {
-  // eslint-disable-next-line no-restricted-properties
-  let number = Math.pow(10, pow);
-  // eslint-disable-next-line operator-assignment
-  number = Math.round(num / number) * number;
-  return number;
+  let result = 0;
+  const number = 10 ** pow;
+  result = Math.round(num / number) * number;
+  return result;
 }
 
 /**
@@ -209,8 +209,7 @@ function roundToPowerOfTen(num, pow) {
 function isPrime(n) {
   if (n < 4) return true;
   let i = 0;
-  // eslint-disable-next-line no-plusplus
-  for (i = 2; i <= Math.sqrt(n); i++) {
+  for (i = 2; i <= Math.sqrt(n); i += 1) {
     if (((n % i) === 0)) return false;
   }
   return true;
