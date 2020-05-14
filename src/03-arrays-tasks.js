@@ -1,5 +1,4 @@
 /* eslint-disable linebreak-style */
-/* eslint-disable no-plusplus */
 /* ********************************************************************************************
  *                                                                                            *
  * Plese read the following tutorial before implementing tasks:                               *
@@ -8,6 +7,8 @@
  * NOTE : Please do not use loops! All tasks can be implmeneted using standard Array methods  *
  *                                                                                            *
  ******************************************************************************************** */
+
+
 /**
  * Returns an index of the specified element in array or -1 if element is not found
  *
@@ -38,7 +39,7 @@ function findElement(arr, value) {
 function generateOdds(len) {
   let odd = 1;
   const arr = [];
-  for (let i = 1; i <= len; i++) {
+  for (let i = 1; i <= len; i += 1) {
     arr.push(odd);
     odd += 2;
   }
@@ -241,8 +242,11 @@ function toArrayOfSquares(arr) {
  */
 function getMovingSum(arr) {
   let sum = 0;
-  // eslint-disable-next-line no-return-assign
-  return arr.map((elem) => sum += elem);
+  function summ(elem) {
+    sum += elem;
+    return sum;
+  }
+  return arr.map(summ);
 }
 
 /**
@@ -258,7 +262,7 @@ function getMovingSum(arr) {
  */
 function getSecondItems(arr) {
   const result = [];
-  for (let i = 1; i < arr.length; i += 2) {
+  for (let i = 1; i < arr.length; i + 2) {
     result.push(arr[i]);
   }
   return result;
@@ -281,9 +285,9 @@ function getSecondItems(arr) {
  */
 function propagateItemsByPositionIndex(arr) {
   const result = [];
-  for (let i = 0; i < arr.length; i++) {
+  for (let i = 0; i < arr.length; i += 1) {
     const repeat = i;
-    for (let j = 0; j <= repeat; j++) {
+    for (let j = 0; j <= repeat; j += 1) {
       result.push(arr[i]);
     }
   }
@@ -305,7 +309,7 @@ function propagateItemsByPositionIndex(arr) {
  *   [ 10, 10, 10, 10 ] => [ 10, 10, 10 ]
  */
 function get3TopItems(arr) {
-  return arr.slice(-3).reverse();
+  return arr.map((el) => el.join(',')).join('\n');
 }
 
 
@@ -328,7 +332,7 @@ function getPositivesCount(arr) {
     return 0;
   }
   if (arr.length) {
-    for (let i = 0; i <= arr.length; i++) {
+    for (let i = 0; i <= arr.length; i += 1) {
       if (typeof arr[i] === 'number' && arr[i] > 0) {
         result.push(arr[i]);
       }
@@ -371,7 +375,7 @@ function sortDigitNamesByNumericOrder(arr) {
  */
 function getItemsSum(arr) {
   let sum = 0;
-  for (let i = 0; i < arr.length; i++) {
+  for (let i = 0; i < arr.length; i += 1) {
     sum += arr[i];
   }
   return sum;
@@ -391,9 +395,8 @@ function getItemsSum(arr) {
  */
 function getFalsyValuesCount(arr) {
   let counter = 0;
-  for (let i = 0; i <= arr.length; i++) {
-    // eslint-disable-next-line use-isnan
-    if (arr[i] === '' || arr[i] === 0 || arr[i] === null || arr[i] === undefined || arr[i] === false || arr[i] === NaN) {
+  for (let i = 0; i < arr.length; i += 1) {
+    if (!arr[i]) {
       counter += 1;
     }
   }
@@ -416,7 +419,7 @@ function getFalsyValuesCount(arr) {
  */
 function findAllOccurences(arr, item) {
   let counter = 0;
-  for (let i = 0; i <= arr.length; i++) {
+  for (let i = 0; i <= arr.length; i += 1) {
     if (arr[i] === item) {
       counter += 1;
     }
@@ -467,8 +470,7 @@ function toStringList(arr) {
  *    ]
  */
 function sortCitiesArray(arr) {
-  return (arr.sort((a, b) => a.country.localeCompare(b.country)
-  || a.city.localeCompare(b.city)));
+  return (arr.sort((a, b) => a.country.localeCompare(b.country) || a.city.localeCompare(b.city)));
 }
 
 /**
@@ -491,15 +493,16 @@ function sortCitiesArray(arr) {
  */
 function getIdentityMatrix(n) {
   const result = [];
-  for (let i = 0; i <= n - 1; i++) {
+  for (let i = 0; i <= n - 1; i += 1) {
     const currArr = [];
-    for (let j = 0; j <= n - 1; j++) {
+    for (let j = 0; j <= n - 1; j += 1) {
       if (i === j) {
         currArr.push(1);
       } else {
         currArr.push(0);
       }
-    } result.push(currArr);
+    }
+    result.push(currArr);
   }
   return result;
 }
@@ -521,17 +524,17 @@ function getIntervalArray(start, end) {
   const result = [];
   const arrLength = end - start + 1;
   if (start < 0) {
-    for (let i = start; i < arrLength - end; i++) {
+    for (let i = start; i < arrLength - end; i += 1) {
       result.push(i);
     }
   }
   if (start > 0) {
-    for (let i = start; i < arrLength + 1; i++) {
+    for (let i = start; i < arrLength + 1; i += 1) {
       result.push(i);
     }
   }
   if (start === 0) {
-    for (let i = start; i < arrLength; i++) {
+    for (let i = start; i < arrLength; i += 1) {
       result.push(i);
     }
   }
@@ -556,7 +559,7 @@ function getIntervalArray(start, end) {
 function distinct(arr) {
   arr.sort();
   const result = [];
-  for (let i = 0; i < arr.length; i++) {
+  for (let i = 0; i < arr.length; i += 1) {
     if (arr[i] !== arr[i + 1]) {
       result.push(arr[i]);
     }
@@ -595,7 +598,7 @@ function distinct(arr) {
  *   }
  */
 function group(/* array, keySelector, valueSelector */) {
-  throw new Error('Not implemented');
+  /* keySelector */
 }
 
 
@@ -612,8 +615,8 @@ function group(/* array, keySelector, valueSelector */) {
  *   [[1, 2], [3, 4], [5, 6]], (x) => x     =>   [ 1, 2, 3, 4, 5, 6 ]
  *   ['one','two','three'], x=>x.split('')  =>   ['o','n','e','t','w','o','t','h','r','e','e']
  */
-function selectMany(/* arr, childrenSelector */) {
-  throw new Error('Not implemented');
+function selectMany(arr, childrenSelector) {
+  return arr.map(childrenSelector).flat();
 }
 
 
@@ -632,7 +635,6 @@ function selectMany(/* arr, childrenSelector */) {
 function getElementByIndexes(arr, indexes) {
   return indexes.reduce((pieceArr, index) => pieceArr[index], arr);
 }
-
 
 /**
  * Swaps the head and tail of the specified array:
