@@ -256,11 +256,7 @@ function getMovingSum(arr) {
  * [ "a" ] => []
  */
 function getSecondItems(arr) {
-  const result = [];
-  for (let i = 1; i < arr.length; i += 2) {
-    result.push(arr[i]);
-  }
-  return result;
+   return arr.filter((i, index) => index % 2);
 }
 
 
