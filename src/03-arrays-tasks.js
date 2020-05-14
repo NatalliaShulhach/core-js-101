@@ -262,7 +262,7 @@ function getMovingSum(arr) {
  */
 function getSecondItems(arr) {
   const result = [];
-  for (let i = 1; i < arr.length; i + 2) {
+  for (let i = 1; i < arr.length; i += 2) {
     result.push(arr[i]);
   }
   return result;
