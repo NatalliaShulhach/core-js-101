@@ -37,13 +37,8 @@ function findElement(arr, value) {
  *    5 => [ 1, 3, 5, 7, 9 ]
  */
 function generateOdds(len) {
-  let odd = 1;
-  const arr = [];
-  for (let i = 1; i <= len; i += 1) {
-    arr.push(odd);
-    odd += 2;
-  }
-  return arr;
+  const result = Array(len).fill(0);
+  return result.map((el, index) => 2 * index + 1);
 }
 
 /**
@@ -309,7 +304,7 @@ function propagateItemsByPositionIndex(arr) {
  *   [ 10, 10, 10, 10 ] => [ 10, 10, 10 ]
  */
 function get3TopItems(arr) {
-  return arr.map((el) => el.join(',')).join('\n');
+  return arr.slice(-3).reverse();
 }
 
 
@@ -557,7 +552,7 @@ function getIntervalArray(start, end) {
  *   [ 1, 1, 2, 2, 3, 3, 4, 4] => [ 1, 2, 3, 4]
  */
 function distinct(arr) {
-  arr.sort();
+  arr.sort((a, b) => a - b);
   const result = [];
   for (let i = 0; i < arr.length; i += 1) {
     if (arr[i] !== arr[i + 1]) {
