@@ -256,7 +256,7 @@ function getMovingSum(arr) {
  * [ "a" ] => []
  */
 function getSecondItems(arr) {
-   return arr.filter((i, index) => index % 2);
+  return arr.filter((i, index) => index % 2);
 }
 
 
@@ -275,14 +275,8 @@ function getSecondItems(arr) {
  *  [ 1,2,3,4,5 ] => [ 1, 2,2, 3,3,3, 4,4,4,4, 5,5,5,5,5 ]
  */
 function propagateItemsByPositionIndex(arr) {
-  const result = [];
-  for (let i = 0; i < arr.length; i += 1) {
-    const repeat = i;
-    for (let j = 0; j <= repeat; j += 1) {
-      result.push(arr[i]);
-    }
-  }
-  return result;
+  return arr.reduce((result, value, index) => result.concat(Array(index + 1)
+    .fill(value, 0)), []);
 }
 
 
@@ -318,18 +312,12 @@ function get3TopItems(arr) {
  *   [ 1, '2' ] => 1
  */
 function getPositivesCount(arr) {
-  const result = [];
-  if (!arr.length) {
-    return 0;
-  }
-  if (arr.length) {
-    for (let i = 0; i <= arr.length; i += 1) {
-      if (typeof arr[i] === 'number' && arr[i] > 0) {
-        result.push(arr[i]);
-      }
+  return arr.reduce((summa, i) => {
+    if (i > 0 && typeof i === 'number') {
+      return summa + 1;
     }
-  }
-  return result.length;
+    return summa;
+  }, 0);
 }
 
 /**
@@ -365,11 +353,7 @@ function sortDigitNamesByNumericOrder(arr) {
  *   [ 1, 10, 100, 1000 ]  => 1111
  */
 function getItemsSum(arr) {
-  let sum = 0;
-  for (let i = 0; i < arr.length; i += 1) {
-    sum += arr[i];
-  }
-  return sum;
+  return arr.reduce((sum, i) => sum + i, 0);
 }
 
 /**
@@ -385,13 +369,12 @@ function getItemsSum(arr) {
  *  [ null, undefined, NaN, false, 0, '' ]  => 6
  */
 function getFalsyValuesCount(arr) {
-  let counter = 0;
-  for (let i = 0; i < arr.length; i += 1) {
-    if (!arr[i]) {
-      counter += 1;
+  return arr.reduce((counter, i) => {
+    if (!i) {
+      return counter + 1;
     }
-  }
-  return counter;
+    return counter;
+  }, 0);
 }
 
 /**
@@ -409,13 +392,12 @@ function getFalsyValuesCount(arr) {
  *    [ true, 0, 1, 'true' ], true => 1
  */
 function findAllOccurences(arr, item) {
-  let counter = 0;
-  for (let i = 0; i <= arr.length; i += 1) {
-    if (arr[i] === item) {
-      counter += 1;
+  return arr.reduce((counter, i) => {
+    if (i === item) {
+      return counter + 1;
     }
-  }
-  return counter;
+    return counter;
+  }, 0);
 }
 
 /**
@@ -483,19 +465,10 @@ function sortCitiesArray(arr) {
  *           [0,0,0,0,1]]
  */
 function getIdentityMatrix(n) {
-  const result = [];
-  for (let i = 0; i <= n - 1; i += 1) {
-    const currArr = [];
-    for (let j = 0; j <= n - 1; j += 1) {
-      if (i === j) {
-        currArr.push(1);
-      } else {
-        currArr.push(0);
-      }
-    }
-    result.push(currArr);
-  }
-  return result;
+  return Array.from({ length: n }, (v, i) => Array.from({ length: n }, (k, j) => {
+    if (j === i) return 1;
+    return 0;
+  }));
 }
 
 /**
@@ -512,28 +485,7 @@ function getIdentityMatrix(n) {
  *     3, 3   => [ 3 ]
  */
 function getIntervalArray(start, end) {
-  const result = [];
-  const arrLength = end - start + 1;
-  if (start < 0) {
-    for (let i = start; i < arrLength - end; i += 1) {
-      result.push(i);
-    }
-  }
-  if (start > 0) {
-    for (let i = start; i < arrLength + 1; i += 1) {
-      result.push(i);
-    }
-  }
-  if (start === 0) {
-    for (let i = start; i < arrLength; i += 1) {
-      result.push(i);
-    }
-  }
-
-  if (start === end) {
-    result.push(start);
-  }
-  return result;
+  return Array.from({ length: end - start + 1 }, (i, j) => start + j);
 }
 
 /**
@@ -548,14 +500,7 @@ function getIntervalArray(start, end) {
  *   [ 1, 1, 2, 2, 3, 3, 4, 4] => [ 1, 2, 3, 4]
  */
 function distinct(arr) {
-  arr.sort((a, b) => a - b);
-  const result = [];
-  for (let i = 0; i < arr.length; i += 1) {
-    if (arr[i] !== arr[i + 1]) {
-      result.push(arr[i]);
-    }
-  }
-  return result;
+  return [...new Set(arr)];
 }
 
 /**
