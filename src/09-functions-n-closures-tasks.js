@@ -64,7 +64,7 @@ function getPowerFunction(exponent) {
  *   getPolynom()      => null
  */
 function getPolynom(...arr) {
-  tconst lengthArrArg = arr.length;
+  const lengthArrArg = arr.length;
   return (x) => {
     if (lengthArrArg === 3) {
       return arr[0] * x ** 2 + arr[1] * x + arr[2];
@@ -182,8 +182,12 @@ function partialUsingArguments(/* fn, ...args1 */) {
  *   getId4() => 7
  *   getId10() => 11
  */
-function getIdGeneratorFunction(/* startFrom */) {
-  throw new Error('Not implemented');
+function getIdGeneratorFunction(startFrom) {
+  let counter = startFrom - 1;
+  return () => {
+    counter += 1;
+    return counter;
+  };
 }
 
 
