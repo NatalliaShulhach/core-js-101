@@ -25,7 +25,7 @@ function Rectangle(width, height) {
   const rectagle = {
     height,
     width,
-    getArea: height * width,
+    getArea() { return height * width; },
   };
   return rectagle;
 }
