@@ -22,12 +22,11 @@
  *    console.log(r.getArea());   // => 200
  */
 function Rectangle(width, height) {
-  const rectagle = {
+  return {
     height,
     width,
     getArea() { return height * width; },
   };
-  return rectagle;
 }
 
 
@@ -58,11 +57,9 @@ function getJSON(obj) {
  *
  */
 function fromJSON(proto, json) {
-  function fromJSON(proto, json) {
   const newObj = JSON.parse(json);
   Object.setPrototypeOf(newObj, proto);
   return newObj;
-}
 }
 
 
