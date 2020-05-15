@@ -28,7 +28,7 @@
  *  21 => 'Fizz'
  *
  */
-function getFizzBuzz(/* num */) {
+function getFizzBuzz(num) {
   if (num % 15 === 0) {
     return 'FizzBuzz';
   }
@@ -135,7 +135,8 @@ function isTriangle(a, b, c) {
  *
  */
 function doRectanglesOverlap(rect1, rect2) {
-  rect1.top + rect1.height) > rect2.top
+  return ((
+    rect1.top + rect1.height) > rect2.top
     && rect1.top <= rect2.top
     && (rect1.left + rect1.width) > rect2.left
     && rect1.left <= rect2.left)
@@ -333,6 +334,24 @@ function getDigitalRoot(/* num */) {
  */
 function isBracketsBalanced(/* str */) {
   throw new Error('Not implemented');
+  // for (let i = 0; i < str.lengt; i += 1) {
+  //   switch (str[i]) {
+  //     case '[':
+  //       isBracketsBalanced(str);
+  //       break;
+  //     case '{':
+  //       isBracketsBalanced(str);
+  //       break;
+  //     case '(':
+  //       isBracketsBalanced(str);
+  //       break;
+  //     case '<':
+  //       isBracketsBalanced(str);
+  //       break;
+  //     default:
+  //       return false;
+  //   }
+  // }
 }
 
 
